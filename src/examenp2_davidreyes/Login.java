@@ -26,21 +26,67 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jpm_deporteadd = new javax.swing.JPopupMenu();
+        jmi_addequip = new javax.swing.JMenuItem();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jt_equipos = new javax.swing.JTree();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jl_equipos = new javax.swing.JList<>();
+
+        jmi_addequip.setText("Añadir equipo");
+        jpm_deporteadd.add(jmi_addequip);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Periodos");
+        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Q1");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Q2");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Q4");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Q5");
+        treeNode1.add(treeNode2);
+        jt_equipos.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jt_equipos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_equiposMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jt_equipos);
+
+        jScrollPane2.setViewportView(jl_equipos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 648, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(128, 128, 128)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 444, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jt_equiposMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_equiposMouseClicked
+        // TODO add your handling code here:
+        if(evt.isMetaDown()){
+            jpm_deporteadd.show(this, evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_jt_equiposMouseClicked
 
     /**
      * @param args the command line arguments
@@ -78,5 +124,11 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JList<String> jl_equipos;
+    private javax.swing.JMenuItem jmi_addequip;
+    private javax.swing.JPopupMenu jpm_deporteadd;
+    private javax.swing.JTree jt_equipos;
     // End of variables declaration//GEN-END:variables
 }
